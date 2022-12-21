@@ -7,10 +7,15 @@ import { Component, VERSION } from '@angular/core';
 })
 
 export class AppComponent  {
-  name = 'Angular ' + VERSION.major;
   index = 1
   addNewPerson(){
+    console.log("Created"+this.index.toString)
+    let row = document.createElement('div');  
+      row.className = 'row';
+      row.innerHTML = `
+      <br>
+      <person></person>`;
+      document.querySelector('.showInputField').appendChild(row);
     this.index++
   }
-
 }
