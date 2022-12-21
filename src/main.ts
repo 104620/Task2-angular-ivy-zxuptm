@@ -43,6 +43,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppComponent} from './app/app.component';
+import {PersonComponent} from './app/person.component';
 
 @NgModule({
   exports: [
@@ -95,7 +96,7 @@ export class DemoMaterialModule {}
     ReactiveFormsModule,
   ],
   entryComponents: [AppComponent],
-  declarations: [AppComponent],
+  declarations: [AppComponent, PersonComponent],
   bootstrap: [AppComponent],
   providers: []
 })
