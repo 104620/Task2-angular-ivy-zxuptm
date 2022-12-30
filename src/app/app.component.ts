@@ -9,10 +9,17 @@ import { PersonComponent } from './person.component';
 
 export class AppComponent  {
   index = 1
+  col = 1
   addNewPerson(){
+    if(this.index === 4){
+      this.index = 1
+      this.col++
+    }
     console.log("Created "+this.index)
     let row = document.createElement('div');  
-      row.className = 'row';
+    // let person = new PersonComponent();
+    
+    row.className = 'row';
       // row.innerHTML = new PersonComponent();
 //       row.innerHTML = `
 //       <br>
@@ -32,9 +39,10 @@ export class AppComponent  {
 <mat-icon>send</mat-icon>Send
 </button>
 </div>`;
+      // row.setAttribute("style", "")
       row.style.width = '150px';
       row.style.marginLeft = '10%';
-      document.querySelector('.showInputField').appendChild(row);
+      document.querySelector('#showInputFieldCol'+this.col).appendChild(row);
     this.index++
   }
 }

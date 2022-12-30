@@ -8,9 +8,14 @@ import {CdkTextareaAutosize} from '@angular/cdk/text-field';
   styleUrls: ['./person.component.css']
 })
 
-export class PersonComponent{
+export class PersonComponent implements OnInit {
 
-  constructor() {
-    console.log("Send to the history chat") 
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+  send(){
+    console.log("Send to the history chat")
   }
 }
