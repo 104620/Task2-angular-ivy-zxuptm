@@ -20,7 +20,6 @@ export class AppComponent  {
     }
     console.log("Created "+this.index)
       document.querySelector('#showInputFieldCol'+this.col).appendChild(this.person.add(this.personIndex));
-
     this.index++
     this.personIndex++
   }

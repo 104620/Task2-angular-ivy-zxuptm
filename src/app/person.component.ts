@@ -24,7 +24,7 @@ export class PersonComponent{
               #autosize="cdkTextareaAutosize"
               cdkAutosizeMinRows="1"
               cdkAutosizeMaxRows="5">
-    
+    {{message}}
     </textarea>
     </mat-form-field><br>
     <button style="border-radius: 10px; margin-left: 100%;" mat-raised-button color="primary" type="submit" id="submit" (click)="send();">
@@ -38,5 +38,6 @@ export class PersonComponent{
 
   send(){
     console.log("Send to the history chat")
+    return this.message
   }
 }
