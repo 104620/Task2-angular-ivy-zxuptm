@@ -9,16 +9,19 @@ import { PersonComponent } from './person.component';
 
 export class AppComponent{
   @ViewChild(PersonComponent) myTemplate!: PersonComponent;
+  
   volaco = null
   index = 1
   personIndex = 1
   col = 1
 
   ngAfterViewInit() {
+
     //getting html element of person component
     this.volaco = this.myTemplate.getHtmlContent()
   }
 
+  
   addNewPerson(){
     //next row
     if(this.index === 4){
