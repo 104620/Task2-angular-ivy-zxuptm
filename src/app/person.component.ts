@@ -1,6 +1,7 @@
-import {Component, NgZone, ViewChild, OnInit, Input} from '@angular/core';
+import {Component, NgZone, ViewChild, OnInit, Input, ContentChild, AfterViewInit , TemplateRef, AfterContentInit} from '@angular/core';
 import {take} from 'rxjs/operators';
 import {CdkTextareaAutosize} from '@angular/cdk/text-field';
+import { AppComponent } from './app.component';
 
 @Component({
   selector: 'person',
@@ -9,9 +10,19 @@ import {CdkTextareaAutosize} from '@angular/cdk/text-field';
 })
 
 export class PersonComponent{
-
   @Input() message: string;
+  // @ContentChild(PersonComponent) myComponent: PersonComponent; 
   
+  // ngAfterContentInit() {
+  //   console.log("AJOOJ")
+  //   console.log(this.myComponent)
+  // }
+
+  // ngAfterViewInit() {
+  //   console.log("AJOOJ1")
+  //   console.log(this.myTemplate)
+  // }
+
   add(personIndex){
     let row = document.createElement('div');  
     row.className = 'row';
@@ -24,7 +35,6 @@ export class PersonComponent{
               #autosize="cdkTextareaAutosize"
               cdkAutosizeMinRows="1"
               cdkAutosizeMaxRows="5">
-    {{message}}
     </textarea>
     </mat-form-field><br>
     <button style="border-radius: 10px; margin-left: 100%;" mat-raised-button color="primary" type="submit" id="submit" (click)="send();">
@@ -39,5 +49,9 @@ export class PersonComponent{
   send(){
     console.log("Send to the history chat")
     return this.message
+  }
+
+  bla(){
+    return 2
   }
 }
