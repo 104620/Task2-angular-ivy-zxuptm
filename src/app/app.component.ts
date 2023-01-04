@@ -15,27 +15,31 @@ export class AppComponent{
   col = 1
 
   ngAfterViewInit() {
+    //getting html element of person component
     this.volaco = this.myTemplate.getHtmlContent()
   }
 
   addNewPerson(){
+    //next row
     if(this.index === 4){
       this.index = 1
       this.col++
     }
-    // this.person.bla()
+    //stop overflow of new users
+    if(this.personIndex === 10)
+      return
+      
+    //creating new person with unique number
     let row = document.createElement('div');  
     let personHeader = document.createElement('h2');  
     row.className = 'row';
     personHeader.innerHTML = `Person ` + this.personIndex
-    let textInput
-    textInput = document.createElement('div')
-    textInput.style.width = '120px'
+    let textInput = document.createElement('div')
+    textInput.style.width = '212px'
     textInput.innerHTML = this.volaco
     personHeader.style.fontSize = '20px'
     row.append(personHeader)
     row.append(textInput)
-
     document.querySelector('#showInputFieldCol'+this.col).appendChild(row);
 
     this.index++

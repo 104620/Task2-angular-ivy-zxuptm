@@ -19,10 +19,9 @@ export class PersonComponent{
   getHtmlContent() {
     return this.elRef.nativeElement.innerHTML;
   }
-  
+
   send(){
     console.log("Send to the history chat")
-    return this.message
   }
 
   bla(){
