@@ -9,32 +9,35 @@ import { PersonComponent } from './person.component';
 
 export class AppComponent{
   @ViewChild(PersonComponent) myTemplate!: PersonComponent;
-
+  volaco = null
   index = 1
   personIndex = 1
   col = 1
-  person = new PersonComponent();
 
   ngAfterViewInit() {
-    console.log("AJOOJ1")
-    let volaco = this.myTemplate.bla()
-    console.log(volaco)
+    this.volaco = this.myTemplate.getHtmlContent()
   }
 
   addNewPerson(){
-
     if(this.index === 4){
       this.index = 1
       this.col++
     }
-
+    // this.person.bla()
     let row = document.createElement('div');  
+    let personHeader = document.createElement('h2');  
     row.className = 'row';
-    row.innerHTML = `<person></person>`
-    // this.person.ngAfterContentInit()
-    // this.person.ngAfterViewInit()
+    personHeader.innerHTML = `Person ` + this.personIndex
+    let textInput
+    textInput = document.createElement('div')
+    textInput.style.width = '120px'
+    textInput.innerHTML = this.volaco
+    personHeader.style.fontSize = '20px'
+    row.append(personHeader)
+    row.append(textInput)
+
     document.querySelector('#showInputFieldCol'+this.col).appendChild(row);
-      document.querySelector('#showInputFieldCol'+this.col).appendChild(this.person.add(this.personIndex));
+
     this.index++
     this.personIndex++
   }

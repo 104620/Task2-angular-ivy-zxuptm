@@ -1,4 +1,4 @@
-import {Component, NgZone, ViewChild, OnInit, Input, ContentChild, AfterViewInit , TemplateRef, AfterContentInit} from '@angular/core';
+import {Component, NgZone, ViewChild, OnInit, Input, ContentChild, AfterViewInit , TemplateRef, AfterContentInit, ElementRef} from '@angular/core';
 import {take} from 'rxjs/operators';
 import {CdkTextareaAutosize} from '@angular/cdk/text-field';
 import { AppComponent } from './app.component';
@@ -10,48 +10,22 @@ import { AppComponent } from './app.component';
 })
 
 export class PersonComponent{
+  elRef: ElementRef
   @Input() message: string;
-  // @ContentChild(PersonComponent) myComponent: PersonComponent; 
-  
-  // ngAfterContentInit() {
-  //   console.log("AJOOJ")
-  //   console.log(this.myComponent)
-  // }
+  constructor(elRef: ElementRef) {
+    this.elRef = elRef;
+  }      
 
-  // ngAfterViewInit() {
-  //   console.log("AJOOJ1")
-  //   console.log(this.myTemplate)
-  // }
-
-  add(personIndex){
-    let row = document.createElement('div');  
-    row.className = 'row';
-    row.innerHTML = `
-    <div style="width: 120px">
-    <mat-form-field appearance="fill">
-    <mat-label>Person `+personIndex+`</mat-label>
-    <textarea matInput
-              cdkTextareaAutosize
-              #autosize="cdkTextareaAutosize"
-              cdkAutosizeMinRows="1"
-              cdkAutosizeMaxRows="5">
-    </textarea>
-    </mat-form-field><br>
-    <button style="border-radius: 10px; margin-left: 100%;" mat-raised-button color="primary" type="submit" id="submit" (click)="send();">
-    <mat-icon>send</mat-icon>Send
-    </button>
-    </div>`;
-    row.style.width = '150px';
-    row.style.marginLeft = '10%';
-    return row
+  getHtmlContent() {
+    return this.elRef.nativeElement.innerHTML;
   }
-
+  
   send(){
     console.log("Send to the history chat")
     return this.message
   }
 
   bla(){
-    return 2
+    console.log("HEHEHEH")
   }
 }
