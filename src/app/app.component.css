@@ -1,9 +1,5 @@
-/* .row{
-  display: grid;
-} */
 .fields{
   width: 70%;
-  /* max-width: 460px; */
   display: grid;
   gap: 1px;
   grid-template-columns: repeat(3, 1fr);
